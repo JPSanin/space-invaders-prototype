@@ -23,9 +23,7 @@ public class Main extends PApplet {
 	}
 
 	public void setup() {
-		controller= new Controller(this);
-		gameOver=false;
-		message="";
+		restart();
 	}
 
 	public void draw() {
@@ -62,9 +60,11 @@ public class Main extends PApplet {
 		text("Press P to play again", 400, 325);
 	}
 
-	
 	fill(255);
-	text(mouseX+ ","+mouseY, mouseX,mouseY);
+	textSize(16);
+	text("Enemies Eliminated: "+ controller.getLogic().getScore(), 25, 20);
+	fill(255);
+	//text(mouseX+ ","+mouseY, mouseX,mouseY);
 	
 	}
 	
@@ -80,6 +80,18 @@ public class Main extends PApplet {
 		}
 		}
 		
+		if(gameOver==true) {
+			if(key=='p' || key=='P') {
+				restart();
+			}
+		}
+		
+	}
+
+	private void restart() {
+		controller= new Controller(this);
+		gameOver=false;
+		message="";
 	}
 
 }

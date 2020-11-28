@@ -12,6 +12,8 @@ public class Logic {
 	private ArrayList<EnemyShip> enemyShips;
 	private Shot shot;
 	
+	private int score;
+	
 	
 	public Logic(PApplet app) {
 		mainShip= new MainShip(400,550,50,app);
@@ -25,6 +27,8 @@ public class Logic {
 		for (int i=0; i<10; i++) {
 			enemyShips.add(new EnemyShip(35+(i*75), 100, 50, app));
 		}
+		
+		score=0;
 		
 	}
 
@@ -68,7 +72,7 @@ public class Logic {
 		
 		if(border>800 -enemyShips.get(0).getSize()) {
 			for (int i = 0; i < enemyShips.size(); i++) {
-				enemyShips.get(i).setPosY(enemyShips.get(i).getPosY()+10);
+				enemyShips.get(i).setPosY(enemyShips.get(i).getPosY()+15);
 				enemyShips.get(i).setMovement(2);
 			}
 		}
@@ -81,7 +85,7 @@ public class Logic {
 			
 			if(border<=0) {
 				for (int i = 0; i < enemyShips.size(); i++) {
-					enemyShips.get(i).setPosY(enemyShips.get(i).getPosY()+10);
+					enemyShips.get(i).setPosY(enemyShips.get(i).getPosY()+15);
 					enemyShips.get(i).setMovement(1);
 				}
 			
@@ -103,6 +107,7 @@ public class Logic {
 					enemyShips.remove(i);
 					shot.setDraw(false);
 					mainShip.setShooting(false);
+					score++;
 				}
 			}
 		}
@@ -121,6 +126,13 @@ public class Logic {
 		
 	}
 	
+	
+	public int getScore() {
+		return score;
+	}
+
+
+
 	public MainShip getMainShip() {
 		return mainShip;
 	}
