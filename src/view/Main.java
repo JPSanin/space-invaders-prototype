@@ -25,6 +25,8 @@ public class Main extends PApplet {
 	background(0);
 	
 	controller.drawElements();
+	fill(255);
+	text(mouseX+ ","+mouseY, mouseX,mouseY);
 	
 	}
 	

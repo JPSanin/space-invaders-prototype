@@ -22,6 +22,8 @@ public class MainShip extends Ship{
 			e.printStackTrace();
 		}
 	}
+	
+	
 	@Override
 	public void move() {
 		
