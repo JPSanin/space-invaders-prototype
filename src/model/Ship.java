@@ -11,12 +11,12 @@ public abstract class Ship extends Thread {
 	
 	private PApplet app;
 
-	public Ship(int posX, int posY, PApplet app) {
+	public Ship(int posX, int posY,int size, PApplet app) {
 		super();
 		this.posX = posX;
 		this.posY = posY;
 		speed = 10;
-		size = 50;
+		this.size = size;
 		this.app = app;
 	}
 	

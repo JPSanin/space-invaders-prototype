@@ -33,6 +33,10 @@ public class Main extends PApplet {
 		controller.getLogic().getMainShip().setKey(key);
 		new Thread(controller.getLogic().getMainShip()).start();
 		
+		if(key==32) {
+			controller.shoot();
+		}
+		
 	}
 
 }

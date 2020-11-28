@@ -11,15 +11,20 @@ public class Controller {
 		logic= new Logic(app);
 	}
 
-	public Logic getLogic() {
-		return logic;
-	}
-
+	
 	public void drawElements() {
 	logic.drawElements();
 		
 	}
 	
-	
+	public void shoot() {
+		logic.shoot();
+	}
+
+
+	public Logic getLogic() {
+		return logic;
+	}
+
 
 }

@@ -7,8 +7,8 @@ public class MainShip extends Ship{
 	private boolean shooting;
 	private char key;
 
-	public MainShip(int posX, int posY, PApplet app) {
-		super(posX, posY, app);
+	public MainShip(int posX, int posY,int size, PApplet app) {
+		super(posX, posY, size ,app);
 		shooting= false;
 		key=0;
 	}
