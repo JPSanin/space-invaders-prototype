@@ -43,6 +43,17 @@ public class EnemyShip extends Ship{
 		
 	}
 
+	
+	public boolean checkHit(Shot shot) {
+		boolean hit=false;
+		if(shot.getPosX()>=getPosX()&& shot.getPosX()<=getPosX()+getSize()) {
+			if(shot.getPosY()-shot.getSize()/2<= getPosY()+getSize() && shot.getPosY()-shot.getSize()/2>getPosY()) {
+				hit=true;
+			}
+		}
+		return hit;
+		
+	}
 
 	public int getMovement() {
 		return movement;
@@ -52,5 +63,8 @@ public class EnemyShip extends Ship{
 	public void setMovement(int movement) {
 		this.movement = movement;
 	}
+
+
+	
 
 }

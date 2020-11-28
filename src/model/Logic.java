@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import exceptions.LoseException;
+import exceptions.WinException;
 import processing.core.PApplet;
 
 public class Logic {
@@ -23,6 +25,7 @@ public class Logic {
 		for (int i=0; i<10; i++) {
 			enemyShips.add(new EnemyShip(35+(i*75), 100, 50, app));
 		}
+		
 	}
 
 
@@ -89,6 +92,31 @@ public class Logic {
 		
 		for (int i = 0; i < enemyShips.size(); i++) {
 			new Thread(enemyShips.get(i)).start();
+		}
+		
+	}
+	
+	public void checkHit() {
+		if(shot.isDraw()) {
+			for (int i = 0; i < enemyShips.size(); i++) {
+				if(enemyShips.get(i).checkHit(shot)) {
+					enemyShips.remove(i);
+					shot.setDraw(false);
+					mainShip.setShooting(false);
+				}
+			}
+		}
+		
+	}
+	
+	
+	public void checkGameOver() throws LoseException, WinException  {
+		if(enemyShips.size()==0) {
+			throw new WinException();
+		}else {
+			if(enemyShips.get(enemyShips.size()-1).getPosY()>=mainShip.getPosY()) {
+				throw new LoseException();
+			}
 		}
 		
 	}
